@@ -162,20 +162,20 @@ public class GameManager : MonoBehaviour
 			RespawnCurrentlyAllowed = RespawnAllowed;
 		}
 		GameOver = false;
-		// if (scene.name != "Lobby")
-		// {
-		// 	SetUpGameMode();
-		// }
+		if (scene.name != "Lobby")
+		{
+			SetUpGameMode();
+		}
 	}
 
 	//this could all still be used in the future for selecting traitors/culties/revs at game start:
-	// private void SetUpGameMode()
-	// {
-	// 	if(gameMode == GameMode.nukeops){
-	// 		//Show nuke opes selection
-	// 		Debug.Log("TODO Set up UI for nuke ops game");
-	// 	}
-	// }
+	 private void SetUpGameMode()
+	{
+		if (gameMode == GameMode.smallroom)
+		{
+			Debug.Log("Small room gamemode running! ass blast usa.");
+		}
+	}
 
 	public void SyncTime(string currentTime)
 	{
@@ -363,5 +363,6 @@ public class GameManager : MonoBehaviour
 public enum GameMode
 {
 	extended,
-	nukeops
+	nukeops,
+	smallroom
 }
