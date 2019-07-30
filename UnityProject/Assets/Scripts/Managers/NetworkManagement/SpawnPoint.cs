@@ -22,6 +22,7 @@ public class SpawnPoint : NetworkStartPosition
 	        {JobDepartment.Entertainers, new[] {JobType.CLOWN, JobType.MIME}},
 	        {JobDepartment.Personnel, new[] {JobType.CURATOR, JobType.COOK, JobType.CHAPLAIN, JobType.BOTANIST, JobType.BARTENDER}},
 	        {JobDepartment.Syndicate, new[] {JobType.SYNDICATE}},
+			{JobDepartment.SMALLROOM, new[] {JobType.STUCK}},
 	};
 
     public IEnumerable<JobType> JobRestrictions => DepartmentJobs[Department];

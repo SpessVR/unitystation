@@ -92,50 +92,53 @@ public class Equipment : NetworkBehaviour
 		//gear.Add("l_pocket", standardOutfit.l_pocket);
 		//gear.Add("r_pocket", standardOutfit.r_pocket);
 		//gear.Add("suit_store", standardOutfit.suit_store);
+		if (jobOutfit != null && jobOutfit.uniform != null)
+		{
+			if (!string.IsNullOrEmpty(jobOutfit.uniform))
+			{
+				gear["uniform"] = jobOutfit.uniform;
+			}
 
-		if (!string.IsNullOrEmpty(jobOutfit.uniform))
-		{
-			gear["uniform"] = jobOutfit.uniform;
-		}
-		/*if (!String.IsNullOrEmpty(jobOutfit.id))
-			gear["id"] = jobOutfit.id;*/
-		if (!string.IsNullOrEmpty(jobOutfit.ears))
-		{
-			gear["ears"] = jobOutfit.ears;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.belt))
-		{
-			gear["belt"] = jobOutfit.belt;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.backpack))
-		{
-			gear["back"] = jobOutfit.backpack;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.shoes))
-		{
-			gear["shoes"] = jobOutfit.shoes;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.glasses))
-		{
-			gear["glasses"] = jobOutfit.glasses;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.gloves))
-		{
-			gear["gloves"] = jobOutfit.gloves;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.suit))
-		{
-			gear["suit"] = jobOutfit.suit;
-		}
-		if (!string.IsNullOrEmpty(jobOutfit.head))
-		{
-			gear["head"] = jobOutfit.head;
-		}
-		/*if (!String.IsNullOrEmpty(jobOutfit.accessory))
-			gear["accessory"] = jobOutfit.accessory;*/
-		if (!string.IsNullOrEmpty(jobOutfit.mask))
-		{
-			gear["mask"] = jobOutfit.mask;
+			/*if (!String.IsNullOrEmpty(jobOutfit.id))
+				gear["id"] = jobOutfit.id;*/
+			if (!string.IsNullOrEmpty(jobOutfit.ears))
+			{
+				gear["ears"] = jobOutfit.ears;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.belt))
+			{
+				gear["belt"] = jobOutfit.belt;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.backpack))
+			{
+				gear["back"] = jobOutfit.backpack;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.shoes))
+			{
+				gear["shoes"] = jobOutfit.shoes;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.glasses))
+			{
+				gear["glasses"] = jobOutfit.glasses;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.gloves))
+			{
+				gear["gloves"] = jobOutfit.gloves;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.suit))
+			{
+				gear["suit"] = jobOutfit.suit;
+			}
+			if (!string.IsNullOrEmpty(jobOutfit.head))
+			{
+				gear["head"] = jobOutfit.head;
+			}
+			/*if (!String.IsNullOrEmpty(jobOutfit.accessory))
+				gear["accessory"] = jobOutfit.accessory;*/
+			if (!string.IsNullOrEmpty(jobOutfit.mask))
+			{
+				gear["mask"] = jobOutfit.mask;
+			}
 		}
 		/*if (!String.IsNullOrEmpty(jobOutfit.backpack))
 			gear["backpack"] = jobOutfit.backpack;

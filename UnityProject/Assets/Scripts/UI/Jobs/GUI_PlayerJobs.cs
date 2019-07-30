@@ -36,16 +36,44 @@ public class GUI_PlayerJobs : MonoBehaviour
 		{
 			Destroy(child.gameObject);
 		}
-
-		foreach (GameObject occupationGo in GameManager.Instance.Occupations)
+		if (GameManager.Instance.gameMode == GameMode.nukeops)
 		{
 
-			GameObject occupation = Instantiate(buttonPrefab);
-			JobType jobType = occupationGo.GetComponent<OccupationRoster>().Type;
-			//For nuke ops mode, syndis spawn via a different button
-			if(jobType == JobType.SYNDICATE){
-				continue;
+			foreach (GameObject occupationGo in GameManager.Instance.Occupations)
+			{
+
+				GameObject occupation = Instantiate(buttonPrefab);
+				JobType jobType = occupationGo.GetComponent<OccupationRoster>().Type;
+				//For nuke ops mode, syndis spawn via a different button
+				if (jobType == JobType.SYNDICATE)
+				{
+					continue;
+				}
+				int active = GameManager.Instance.GetOccupationsCount(jobType);
+				int available = GameManager.Instance.GetOccupationMaxCount(jobType);
+
+				occupation.name = jobType.ToString();
+				occupation.GetComponentInChildren<Text>().text = jobType + " (" + active + " of " + available + ")";
+				occupation.transform.SetParent(screen_Jobs.transform);
+				occupation.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+				//Disabled button for full jobs
+				if (active >= available)
+				{
+					occupation.GetComponentInChildren<Button>().interactable = false;
+				}
+				else //Enabled button with listener for vacant jobs
+				{
+					occupation.GetComponent<Button>().onClick.AddListener(() => { BtnOk(jobType); });
+				}
+
+				occupation.SetActive(true);
 			}
+		}
+		else if (GameManager.Instance.gameMode == GameMode.smallroom)
+		{
+			GameObject occupation = Instantiate(buttonPrefab);
+			JobType jobType = JobType.STUCK;
 			int active = GameManager.Instance.GetOccupationsCount(jobType);
 			int available = GameManager.Instance.GetOccupationMaxCount(jobType);
 
